@@ -42,21 +42,16 @@ public class node {
 
             String newC = acceptedSymDeque.poll();
             set(newC);
-            if (this.relationNode != null) {
+            if (nodeType != NodeType.GRANDCHILD) {
                 return symbol() + relationNode.chilSym();
-            } else {
-                return symbol();
+                // } else {
+                // return symbol();
             }
-        } else if (this.relationNode != null) {
-
+        } else if (nodeType != NodeType.GRANDCHILD) {
             relationNode.increment();
-            if (nodeType != nodeType.GRANDCHILD) {
-                initStartEnd();
-            }
+            initStartEnd();
         } else {
-            if (nodeType == NodeType.GRANDCHILD) {
-                allowsIncrement = false;
-            }
+            allowsIncrement = false;
         }
         return symbol();
     }
@@ -95,6 +90,7 @@ public class node {
         // TODO Auto-generated method stub
         return nodeType.toString();
     }
+    
 }
 
 enum NodeType {

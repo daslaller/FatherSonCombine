@@ -32,7 +32,7 @@ public class App {
 
         while (wordNodes.getKey().allowsIncrement) {
             wordList.add(wordNodes.getValue().increment());
-            if (wordList.size() == LIST_MAX_SIZE) {
+            if (wordList.size() >= LIST_MAX_SIZE) {
                 lHashMap.put(lHashMap.size(), wordList);
                 wordList = new ArrayList<>(LIST_MAX_SIZE);
             }
